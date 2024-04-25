@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>⛽🦁 Gasolina Leoncito 🦁⛽</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        #content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 90%;
+            font-size: 80px;
+            margin: 0;
+        }
+        #content h2 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        #content h1 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        form {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        input[type="number"],
+        button {
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 65px;
+            text-align: center;
+            max-width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <img src='https://static.vecteezy.com/system/resources/previews/020/500/602/original/peugeot-brand-logo-symbol-with-name-black-design-french-car-automobile-illustration-free-vector.jpg'
+        width="100%">
+        <h2>Gasolina Leoncito</h2>
+        <h1>🦁⛽</h1>
+        <form id="calculator">
+            <label for="pricePerGallon">Precio por galón:</label>
+            <input type="number" id="pricePerGallon" name="pricePerGallon" required>
+            <label for="distance">Kilometros a recorrer:</label>
+            <input type="number" id="distance" name="distance" required>
+            <button type="button" onclick="calculateCost()">Calcular</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateCost() {
+            var pricePerGallon = parseFloat(document.getElementById('pricePerGallon').value);
+            var distance = parseFloat(document.getElementById('distance').value);
+
+            var kilometersPerGallon = 26.56; // Este valor es un ejemplo, deberías ajustarlo según el rendimiento de tu carro
+
+            var gallonsNeeded = distance / kilometersPerGallon;
+            var totalCost = gallonsNeeded * pricePerGallon;
+
+            document.getElementById('result').innerHTML = "El costo total estimado es: $" + totalCost.toFixed(2) + " pesos colombianos";
+        }
+    </script>
+</body>
+</html>
